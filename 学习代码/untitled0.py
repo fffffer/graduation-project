@@ -32,6 +32,14 @@ model = keras.Sequential([
             keras.layers.Dense(10, activation='softmax')
         ])
 
+# 神经网络的基本组成部分是层，图层从输入到其中的输入提取表示，深度学习的大部分内容是将简单的
+# 曾链接到一起。大多层（如tf.keras.layers.Dense）具有在训练中学习的参数
+# 该网络的第一层tf.keras.layers.Flatten将图像格式从二维数组（28 x 28像素）转换为一维数组（28 * 28 = #784像素）。可以将这一层看作是堆叠图像中的像素行并对齐它们。该层没有学习参数。它只会重新格式化数据。 
+#像素变平后，网络由tf.keras.layers.Dense两层序列组成。这些是紧密连接或完全连接的神经层。第一Dense层有128个节点（或神经元）。第二层（也是最后一层）是一个10节点的softmax层，该层返回10个总和为1的概率分数的数组。每个节点都包含一个分数，该分数指示当前图像属于10类之一的概率。  
+#  
+#  
+
+
 model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
